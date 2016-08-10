@@ -21,13 +21,16 @@ class ViewController: UIViewController {
     private let kTextToSpeechPlaceholderText = NSLocalizedString("What would you like me to say?", comment: "")
     private var tts:TextToSpeech!
     private let kAmountOfLinesShown = CGFloat(7)
+    // Comment out
+    private let creds = Credentials.sharedInstance
+    
     // Do any additional setup after loading the view, typically from a nib.
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        tts = TextToSpeech(username: "YOUR USERNAME HERE", password: "YOUR PASSWORD HERE")
+        tts = TextToSpeech(username: creds.username, password: creds.password)
         
 //        tts.synthesize("All the problems of the world could be settled easily if men were only willing to think.",
 //                       voice: SynthesisVoice.GB_Kate,

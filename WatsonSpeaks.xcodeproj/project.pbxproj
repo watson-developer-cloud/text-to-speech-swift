@@ -26,6 +26,7 @@
 		CE68E68C1D5A652700395344 /* RestKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE68E68A1D5A652700395344 /* RestKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE68E68E1D5A653900395344 /* TextToSpeechV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE68E68D1D5A653900395344 /* TextToSpeechV1.framework */; };
 		CE68E68F1D5A653900395344 /* TextToSpeechV1.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE68E68D1D5A653900395344 /* TextToSpeechV1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE68E6951D5BBCAE00395344 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E6941D5BBCAE00395344 /* Credentials.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		CE68E6871D5A650400395344 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		CE68E68A1D5A652700395344 /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = Carthage/Build/iOS/RestKit.framework; sourceTree = "<group>"; };
 		CE68E68D1D5A653900395344 /* TextToSpeechV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextToSpeechV1.framework; path = Carthage/Build/iOS/TextToSpeechV1.framework; sourceTree = "<group>"; };
+		CE68E6941D5BBCAE00395344 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		CE68E63F1D5A5C4500395344 = {
 			isa = PBXGroup;
 			children = (
+				CE68E6941D5BBCAE00395344 /* Credentials.swift */,
 				CE68E68D1D5A653900395344 /* TextToSpeechV1.framework */,
 				CE68E68A1D5A652700395344 /* RestKit.framework */,
 				CE68E6871D5A650400395344 /* Alamofire.framework */,
@@ -320,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE68E6951D5BBCAE00395344 /* Credentials.swift in Sources */,
 				CE68E64E1D5A5C4500395344 /* ViewController.swift in Sources */,
 				CE68E64C1D5A5C4500395344 /* AppDelegate.swift in Sources */,
 			);
@@ -556,6 +560,7 @@
 				CE68E6721D5A5C4500395344 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE68E6731D5A5C4500395344 /* Build configuration list for PBXNativeTarget "WatsonSpeaksTests" */ = {
 			isa = XCConfigurationList;
@@ -564,6 +569,7 @@
 				CE68E6751D5A5C4500395344 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE68E6761D5A5C4500395344 /* Build configuration list for PBXNativeTarget "WatsonSpeaksUITests" */ = {
 			isa = XCConfigurationList;
@@ -572,6 +578,7 @@
 				CE68E6781D5A5C4500395344 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
