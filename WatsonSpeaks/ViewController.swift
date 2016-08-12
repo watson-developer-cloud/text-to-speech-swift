@@ -17,12 +17,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var speakButton: UIButton!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var voicesTableView: UITableView!
     
     private let kTextToSpeechPlaceholderText = NSLocalizedString("What would you like me to say?", comment: "")
     private var tts:TextToSpeech!
     private let kAmountOfLinesShown = CGFloat(7)
     // Comment out
     private let creds = Credentials.sharedInstance
+    var voices: [String] = []
     
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -48,8 +50,10 @@ class ViewController: UIViewController {
 //
 //        }
         setupSpeakButton()
-        //setupTextField()
+        setupTextField()
         setupTextView()
+        loadVoices()
+        setupTableView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,6 +63,7 @@ class ViewController: UIViewController {
     
     private func setupSpeakButton() {
         speakButton.setTitle("SPEAK", forState: .Normal)
+        speakButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
     }
     
     private func setupTextView() {
@@ -88,6 +93,8 @@ class ViewController: UIViewController {
             self.presentViewController(alert, animated: true, completion: nil)
             return
         }
+        
+        //own function, organize the calls to watson service so people can clearly see how the services work.
         tts.synthesize(text,
                        voice: SynthesisVoice.GB_Kate,
                        audioFormat: AudioFormat.WAV,
@@ -106,6 +113,51 @@ class ViewController: UIViewController {
     }
     
 
+
+}
+
+// Table View Methods
+extension ViewController : UITableViewDelegate, UITableViewDataSource {
+
+    private func setupTableView() {
+        self.voicesTableView.delegate = self
+        self.voicesTableView.dataSource = self
+        //voicesTableView.registerClass(VoicesTableViewCell.self, forCellReuseIdentifier: "VoicesTableViewCell")
+    }
+    
+    func loadVoices() {
+        voices.append("Kate")
+        voices.append("Allison")
+        voices.append("Lisa")
+        voices.append("Michael")
+    }
+    
+    func getVoiceForIndex(index: Int) -> String? {
+        if ((index >= 0) || (index < voices.count)) {
+            return voices[index]
+        }
+        return nil
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCellWithIdentifier("VoicesTableViewCell", forIndexPath: indexPath) as? VoicesTableViewCell else {
+            return UITableViewCell()
+        }
+        // Fetch voice to display
+        if let voice = self.getVoiceForIndex(indexPath.row) {
+            //sets the name of the label to be
+            cell.voiceNavLabel!.text = voice
+        }
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return voices.count
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
 
 }
 
