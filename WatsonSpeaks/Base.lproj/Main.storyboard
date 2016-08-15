@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,91 +17,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VbJ-5i-UMF">
-                                <rect key="frame" x="57" y="285" width="496" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watson Speaks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPC-5H-dK1">
-                                <rect key="frame" x="241" y="63" width="118" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="214" y="58" width="172" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ncw-d9-S2i">
-                                <rect key="frame" x="266" y="404" width="67" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ncw-d9-S2i">
+                                <rect key="frame" x="267" y="447" width="67" height="30"/>
                                 <color key="backgroundColor" red="0.18071884225166468" green="0.70162336837273875" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="0Vi-wE-BCF"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="pressedSpeakButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lkh-sP-9x2"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2mO-yF-YVs">
-                                <rect key="frame" x="180" y="237" width="240" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2mO-yF-YVs">
+                                <rect key="frame" x="180" y="272" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="2ZM-KE-YnT"/>
+                                    <constraint firstAttribute="height" constant="128" id="1Qn-ws-Duw"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1fG-nl-zTA">
-                                <rect key="frame" x="180" y="101" width="240" height="128"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="24" sectionFooterHeight="24" translatesAutoresizingMaskIntoConstraints="NO" id="1fG-nl-zTA">
+                                <rect key="frame" x="180" y="128" width="240" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Ozn-ZC-0G6"/>
+                                    <constraint firstAttribute="height" constant="100" id="sCI-q9-gUI"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VoicesTableViewCell" id="GZz-g4-EBE" customClass="VoicesTableViewCell" customModule="WatsonSpeaks" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
+                                        <rect key="frame" x="0.0" y="24" width="240" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GZz-g4-EBE" id="vm0-ws-s6z">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPD-Su-0sM" userLabel="Voice Nav Label">
-                                                    <rect key="frame" x="14" y="0.0" width="218" height="44"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="voiceNavLabel" destination="qPD-Su-0sM" id="cdf-iH-jXa"/>
-                                        </connections>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1fG-nl-zTA" firstAttribute="top" secondItem="wPC-5H-dK1" secondAttribute="bottom" constant="16" id="0iL-73-ean"/>
-                            <constraint firstItem="VbJ-5i-UMF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EJN-B0-jyx"/>
-                            <constraint firstItem="Ncw-d9-S2i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EQ3-Oo-jVb"/>
-                            <constraint firstItem="Ncw-d9-S2i" firstAttribute="top" secondItem="2mO-yF-YVs" secondAttribute="bottom" constant="40" id="H04-QB-HoH"/>
-                            <constraint firstItem="VbJ-5i-UMF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="5" id="Hc3-em-jjn"/>
-                            <constraint firstItem="Ncw-d9-S2i" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="119" id="JR7-Ul-Qxg"/>
-                            <constraint firstItem="2mO-yF-YVs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="KBq-sN-pjV"/>
-                            <constraint firstItem="2mO-yF-YVs" firstAttribute="leading" secondItem="1fG-nl-zTA" secondAttribute="leading" id="Sha-a8-Mo2"/>
-                            <constraint firstItem="2mO-yF-YVs" firstAttribute="trailing" secondItem="1fG-nl-zTA" secondAttribute="trailing" id="V11-4a-C36"/>
-                            <constraint firstItem="wPC-5H-dK1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="43" id="YDc-Cx-XE7"/>
-                            <constraint firstItem="Ncw-d9-S2i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="10.5" id="bDd-F8-6UV"/>
-                            <constraint firstItem="Ncw-d9-S2i" firstAttribute="centerX" secondItem="wPC-5H-dK1" secondAttribute="centerX" constant="10.5" id="jq0-bZ-NqK"/>
-                            <constraint firstItem="wPC-5H-dK1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n8B-er-XTQ"/>
-                            <constraint firstItem="2mO-yF-YVs" firstAttribute="top" secondItem="1fG-nl-zTA" secondAttribute="bottom" constant="8" id="o3s-zg-Umi"/>
-                            <constraint firstItem="2mO-yF-YVs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oPL-zu-mOJ"/>
-                            <constraint firstItem="2mO-yF-YVs" firstAttribute="top" secondItem="1fG-nl-zTA" secondAttribute="bottom" constant="8" symbolic="YES" id="yD9-Mk-WSa"/>
-                            <constraint firstItem="VbJ-5i-UMF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="37" id="yfJ-9h-T89"/>
+                            <constraint firstItem="Ncw-d9-S2i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Qh-fV-jZX"/>
+                            <constraint firstItem="1fG-nl-zTA" firstAttribute="leading" secondItem="2mO-yF-YVs" secondAttribute="leading" id="2NU-D4-1TH"/>
+                            <constraint firstItem="1fG-nl-zTA" firstAttribute="centerX" secondItem="Ncw-d9-S2i" secondAttribute="centerX" id="2YP-d0-WKy"/>
+                            <constraint firstItem="wPC-5H-dK1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5JN-ru-vOX"/>
+                            <constraint firstItem="Ncw-d9-S2i" firstAttribute="top" secondItem="2mO-yF-YVs" secondAttribute="bottom" constant="47" id="Qem-SW-WJR"/>
+                            <constraint firstItem="1fG-nl-zTA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="108" id="Ubk-zY-KyE"/>
+                            <constraint firstItem="1fG-nl-zTA" firstAttribute="trailing" secondItem="2mO-yF-YVs" secondAttribute="trailing" id="Udc-VU-mCZ"/>
+                            <constraint firstItem="2mO-yF-YVs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="252" id="bdR-wK-RZz"/>
+                            <constraint firstItem="wPC-5H-dK1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="38" id="ktE-nN-1V2"/>
+                            <constraint firstItem="1fG-nl-zTA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lAy-pD-NRW"/>
+                            <constraint firstItem="2mO-yF-YVs" firstAttribute="top" secondItem="1fG-nl-zTA" secondAttribute="bottom" constant="44" id="sxU-QY-Zdf"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="bDd-F8-6UV"/>
-                                <exclude reference="jq0-bZ-NqK"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="speakButton" destination="Ncw-d9-S2i" id="NLs-3k-c9G"/>
-                        <outlet property="textField" destination="VbJ-5i-UMF" id="ltq-aF-JUd"/>
                         <outlet property="textView" destination="2mO-yF-YVs" id="A71-wG-caY"/>
                         <outlet property="voicesTableView" destination="1fG-nl-zTA" id="9hl-1h-ozg"/>
                     </connections>
