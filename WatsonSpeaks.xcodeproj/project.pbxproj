@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE0C2A6E1D5E21FE00D9DBCE /* VoicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C2A6D1D5E21FE00D9DBCE /* VoicesTableViewCell.swift */; };
-		CE46B4E91D5CDA350050865A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE46B4E81D5CDA350050865A /* ViewModel.swift */; };
 		CE58186D1D620B1C006D3D43 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58186C1D620B1C006D3D43 /* UIViewExtensions.swift */; };
 		CE5818711D6215FE006D3D43 /* ToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5818701D6215FE006D3D43 /* ToSpeech.swift */; };
+		CE5818731D621967006D3D43 /* VoicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5818721D621967006D3D43 /* VoicesTableViewCell.swift */; };
 		CE68E64C1D5A5C4500395344 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E64B1D5A5C4500395344 /* AppDelegate.swift */; };
 		CE68E64E1D5A5C4500395344 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E64D1D5A5C4500395344 /* ViewController.swift */; };
 		CE68E6511D5A5C4500395344 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE68E64F1D5A5C4500395344 /* Main.storyboard */; };
@@ -67,10 +66,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CE0C2A6D1D5E21FE00D9DBCE /* VoicesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoicesTableViewCell.swift; sourceTree = "<group>"; };
-		CE46B4E81D5CDA350050865A /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		CE58186C1D620B1C006D3D43 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		CE5818701D6215FE006D3D43 /* ToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToSpeech.swift; sourceTree = "<group>"; };
+		CE5818721D621967006D3D43 /* VoicesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoicesTableViewCell.swift; sourceTree = "<group>"; };
 		CE68E6481D5A5C4500395344 /* WatsonSpeaks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatsonSpeaks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE68E64B1D5A5C4500395344 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE68E64D1D5A5C4500395344 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -157,13 +155,12 @@
 		CE68E64A1D5A5C4500395344 /* WatsonSpeaks */ = {
 			isa = PBXGroup;
 			children = (
+				CE5818721D621967006D3D43 /* VoicesTableViewCell.swift */,
 				CE68E64B1D5A5C4500395344 /* AppDelegate.swift */,
 				CE68E64D1D5A5C4500395344 /* ViewController.swift */,
 				CE5818701D6215FE006D3D43 /* ToSpeech.swift */,
 				CE58186C1D620B1C006D3D43 /* UIViewExtensions.swift */,
 				CE68E64F1D5A5C4500395344 /* Main.storyboard */,
-				CE0C2A6D1D5E21FE00D9DBCE /* VoicesTableViewCell.swift */,
-				CE46B4E81D5CDA350050865A /* ViewModel.swift */,
 				CE68E6521D5A5C4500395344 /* Assets.xcassets */,
 				CE68E6541D5A5C4500395344 /* LaunchScreen.storyboard */,
 				CE68E6571D5A5C4500395344 /* Info.plist */,
@@ -335,12 +332,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5818731D621967006D3D43 /* VoicesTableViewCell.swift in Sources */,
 				CE58186D1D620B1C006D3D43 /* UIViewExtensions.swift in Sources */,
-				CE0C2A6E1D5E21FE00D9DBCE /* VoicesTableViewCell.swift in Sources */,
 				CE68E6951D5BBCAE00395344 /* Credentials.swift in Sources */,
 				CE5818711D6215FE006D3D43 /* ToSpeech.swift in Sources */,
 				CE68E64E1D5A5C4500395344 /* ViewController.swift in Sources */,
-				CE46B4E91D5CDA350050865A /* ViewModel.swift in Sources */,
 				CE68E64C1D5A5C4500395344 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
