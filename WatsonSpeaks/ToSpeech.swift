@@ -12,13 +12,17 @@ import AVFoundation
 
 class ToSpeech {
     
-    private var tts: TextToSpeech!
-    var player: AVAudioPlayer?
+    private var tts: TextToSpeech!      /* tts object to use TextToSpeech. */
+    var player: AVAudioPlayer?          /* Object used to play audio in app. */
     
+    /* Service's credentials to authenticate. */
     init(username: String, password: String) {
         tts = TextToSpeech(username: username, password: password)
     }
     
+    /* Synthesize text to audio. Kate selected for which voice to be used for synthesis.
+     * Returns the text in audio format specified and uses callback to output the audio.
+    */
     func kateSpeaking(text: String) {
         tts.synthesize(text,
                        voice: SynthesisVoice.GB_Kate,
@@ -37,6 +41,7 @@ class ToSpeech {
         }
     }
     
+    /* Synthesize text to audio with Allison's voice. */
     func allisonSpeaking(text: String) {
         tts.synthesize(text,
                        voice: SynthesisVoice.US_Allison,
@@ -55,6 +60,7 @@ class ToSpeech {
         }
     }
     
+    /* Synthesize text to audio with Michael's voice. */
     func michaelSpeaking(text: String) {
         tts.synthesize(text,
                        voice: SynthesisVoice.US_Michael,
@@ -73,6 +79,7 @@ class ToSpeech {
         }
     }
     
+    /* Synthesize text to audio with Lisa's voice. */
     func lisaSpeaking(text: String) {
         tts.synthesize(text,
                        voice: SynthesisVoice.US_Lisa,

@@ -10,17 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    //MARK - properties
     @IBOutlet weak var speakButton: UIButton!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var voicesTableView: UITableView!
     
-    private var tts:ToSpeech!
-    private let kAmountOfLinesShown = CGFloat(7)
+    private var tts:ToSpeech!                           /* ToSpeech object to use TextToSpeech service. */
+    private let kAmountOfLinesShown = CGFloat(7)        /* Defines the number of lines to be shown in the text view. */
     
-    private let creds = Credentials.sharedInstance
+    private let creds = Credentials.sharedInstance      /* Credentials are stored in separate file. */
     
-    var voices: [String] = []
-    var selectedVoice: String!
+    var voices: [String] = []                           /* Stores names of voices to display in table view. */
+    var selectedVoice: String!                          /* Voice selected by user in the table view. */
     
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -28,11 +29,13 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         
+        // Set up speech to text service with credentials and password received from
+        // services app on Bluemix.
         tts = ToSpeech(username: creds.username, password: creds.password)
         
         setupSpeakButton()
         setupTextView()
-        loadVoices()
+        setupVoices()
         setupTableView()
 
     }
@@ -54,18 +57,26 @@ class ViewController: UIViewController {
         textView.layer.borderColor = UIColor.blackColor().CGColor
         textView.layer.borderWidth = 1
     }
+    
+    private func setupVoices() {
+        voices.append("Kate")
+        voices.append("Allison")
+        voices.append("Lisa")
+        voices.append("Michael")
+    }
 
     @IBAction func pressedSpeakButton(sender: AnyObject) {
         guard let text = textView.text else {
             return
         }
+        // Error handling to make sure that the text field is not empty.
         if text == "" {
             let alert = UIAlertController(title: "Text Field Empty", message: "Please enter something for me to say!", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
             return
         }
-        
+        // Uses user's selected voice to use when reading the text inputted.
         switch selectedVoice {
             case "Kate":
                 tts.kateSpeaking(text)
@@ -92,13 +103,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         self.voicesTableView.borderColor = UIColor.lightGrayColor()
     }
     
-    func loadVoices() {
-        voices.append("Kate")
-        voices.append("Allison")
-        voices.append("Lisa")
-        voices.append("Michael")
-    }
-    
+    /* Check if index is valid. */
     func getVoiceForIndex(index: Int) -> String? {
         if ((index >= 0) || (index < voices.count)) {
             return voices[index]
@@ -106,13 +111,17 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         return nil
     }
     
+    /* Display all the voices we inputted in the function setupVoices to be shown in the
+     * table view. 
+     */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Grab each cell to input the desired string.
         guard let cell = tableView.dequeueReusableCellWithIdentifier("VoicesTableViewCell", forIndexPath: indexPath) as? VoicesTableViewCell else {
             return UITableViewCell()
         }
         // Fetch voice to display
         if let voice = self.getVoiceForIndex(indexPath.row) {
-            //sets the name of the label
+            // Set the name
             cell.textLabel!.text = voice
         }
         return cell
@@ -127,6 +136,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    // The number of rows in the table view is set to be the number of voices in the voices array.
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return voices.count
     }
