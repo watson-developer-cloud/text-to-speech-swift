@@ -9,8 +9,6 @@
 import UIKit
 
 class VoicesTableViewCell: UITableViewCell {
-    // MARK: Properties
-    @IBOutlet weak var voiceNavLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,12 +19,6 @@ class VoicesTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-    
-    func setupVoiceCell(name: String){
-        //self.textLabel?.text = name
-        //self.textLabel?.textColor = UIColor.blackColor()
-        self.voiceNavLabel.text = name
     }
 
 }
