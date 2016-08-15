@@ -7,21 +7,16 @@
 //
 
 import UIKit
-import TextToSpeechV1
-import AVFoundation
 
 class ViewController: UIViewController {
-    
-    var player: AVAudioPlayer?
     
     @IBOutlet weak var speakButton: UIButton!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var voicesTableView: UITableView!
     
-    private let kTextToSpeechPlaceholderText = NSLocalizedString("What would you like me to say?", comment: "")
-    private var tts:TextToSpeech!
+    private var tts:ToSpeech!
     private let kAmountOfLinesShown = CGFloat(7)
-    // Comment out
+    
     private let creds = Credentials.sharedInstance
     
     var voices: [String] = []
@@ -33,7 +28,7 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         
-        tts = TextToSpeech(username: creds.username, password: creds.password)
+        tts = ToSpeech(username: creds.username, password: creds.password)
         
         setupSpeakButton()
         setupTextView()
@@ -71,45 +66,19 @@ class ViewController: UIViewController {
             return
         }
         
-        let selectedSynthVoice:SynthesisVoice!
-        
         switch selectedVoice {
             case "Kate":
-                selectedSynthVoice = SynthesisVoice.GB_Kate
+                tts.kateSpeaking(text)
             case "Allison":
-                selectedSynthVoice = SynthesisVoice.US_Allison
+                tts.allisonSpeaking(text)
             case "Lisa":
-                selectedSynthVoice = SynthesisVoice.US_Lisa
-                break
+                tts.lisaSpeaking(text)
             case "Michael":
-                selectedSynthVoice = SynthesisVoice.US_Michael
-                break
+                tts.michaelSpeaking(text)
         default:
-            selectedSynthVoice = SynthesisVoice.GB_Kate
-            break
-            
-        }
-        
-        //own function, organize the calls to watson service so people can clearly see how the services work.
-        tts.synthesize(text,
-                       voice: selectedSynthVoice,
-                       audioFormat: AudioFormat.WAV,
-                       failure: { error in
-                        print("error was generated \(error)")
-        }) { data in
-            
-            do {
-                self.player = try AVAudioPlayer(data: data)
-                self.player!.play()
-            } catch {
-                print("Couldn't create player.")
-            }
-            
+            tts.kateSpeaking(text)
         }
     }
-    
-
-
 }
 
 // Table View Methods
