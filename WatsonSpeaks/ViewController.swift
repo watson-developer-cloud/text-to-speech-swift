@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     var player: AVAudioPlayer?
     
     @IBOutlet weak var speakButton: UIButton!
-    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var voicesTableView: UITableView!
     
@@ -24,7 +23,9 @@ class ViewController: UIViewController {
     private let kAmountOfLinesShown = CGFloat(7)
     // Comment out
     private let creds = Credentials.sharedInstance
+    
     var voices: [String] = []
+    var selectedVoice: String!
     
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -34,26 +35,11 @@ class ViewController: UIViewController {
         
         tts = TextToSpeech(username: creds.username, password: creds.password)
         
-//        tts.synthesize("All the problems of the world could be settled easily if men were only willing to think.",
-//                       voice: SynthesisVoice.GB_Kate,
-//                       audioFormat: AudioFormat.WAV,
-//                       failure: { error in
-//                        print("error was generated \(error)")
-//        }) { data in
-//            
-//            do {
-//                self.player = try AVAudioPlayer(data: data)
-//                self.player!.play()
-//            } catch {
-//                print("Couldn't create player.")
-//            }
-//
-//        }
         setupSpeakButton()
-        setupTextField()
         setupTextView()
         loadVoices()
         setupTableView()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,15 +59,6 @@ class ViewController: UIViewController {
         textView.layer.borderColor = UIColor.blackColor().CGColor
         textView.layer.borderWidth = 1
     }
-    
-    private func setupTextField() {
-        textField.hidden = true
-        textField.text = "All the problems of the world could be settled easily if men were only willing to think."
-//        textField.attributedPlaceholder = NSAttributedString(string:kTextToSpeechPlaceholderText,
-//                                                             attributes: [NSForegroundColorAttributeName: UIColor.darkGrayColor()])
-        textField.layer.borderColor = UIColor.grayColor().CGColor
-        textField.layer.borderWidth = 1
-    }
 
     @IBAction func pressedSpeakButton(sender: AnyObject) {
         guard let text = textView.text else {
@@ -94,9 +71,28 @@ class ViewController: UIViewController {
             return
         }
         
+        let selectedSynthVoice:SynthesisVoice!
+        
+        switch selectedVoice {
+            case "Kate":
+                selectedSynthVoice = SynthesisVoice.GB_Kate
+            case "Allison":
+                selectedSynthVoice = SynthesisVoice.US_Allison
+            case "Lisa":
+                selectedSynthVoice = SynthesisVoice.US_Lisa
+                break
+            case "Michael":
+                selectedSynthVoice = SynthesisVoice.US_Michael
+                break
+        default:
+            selectedSynthVoice = SynthesisVoice.GB_Kate
+            break
+            
+        }
+        
         //own function, organize the calls to watson service so people can clearly see how the services work.
         tts.synthesize(text,
-                       voice: SynthesisVoice.GB_Kate,
+                       voice: selectedSynthVoice,
                        audioFormat: AudioFormat.WAV,
                        failure: { error in
                         print("error was generated \(error)")
@@ -122,7 +118,9 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     private func setupTableView() {
         self.voicesTableView.delegate = self
         self.voicesTableView.dataSource = self
-        //voicesTableView.registerClass(VoicesTableViewCell.self, forCellReuseIdentifier: "VoicesTableViewCell")
+        
+        self.voicesTableView.borderWidth = 1.0
+        self.voicesTableView.borderColor = UIColor.lightGrayColor()
     }
     
     func loadVoices() {
@@ -145,10 +143,19 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         }
         // Fetch voice to display
         if let voice = self.getVoiceForIndex(indexPath.row) {
-            //sets the name of the label to be
-            cell.voiceNavLabel!.text = voice
+            //sets the name of the label
+            cell.textLabel!.text = voice
         }
         return cell
+    }
+    
+    // Get the selected item
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let cell = self.voicesTableView.cellForRowAtIndexPath(indexPath) {
+            if let voice = cell.textLabel?.text {
+                selectedVoice = voice
+            }
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
