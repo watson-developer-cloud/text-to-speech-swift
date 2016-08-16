@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -24,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ncw-d9-S2i">
-                                <rect key="frame" x="267" y="447" width="67" height="30"/>
+                                <rect key="frame" x="267" y="500" width="67" height="30"/>
                                 <color key="backgroundColor" red="0.18071884225166468" green="0.70162336837273875" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="67" id="0Vi-wE-BCF"/>
@@ -34,34 +35,19 @@
                                     <action selector="pressedSpeakButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lkh-sP-9x2"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2mO-yF-YVs">
-                                <rect key="frame" x="180" y="272" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="1Qn-ws-Duw"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="24" sectionFooterHeight="24" translatesAutoresizingMaskIntoConstraints="NO" id="1fG-nl-zTA">
-                                <rect key="frame" x="180" y="128" width="240" height="100"/>
+                                <rect key="frame" x="207" y="128" width="185" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Ozn-ZC-0G6"/>
-                                    <constraint firstAttribute="height" constant="100" id="sCI-q9-gUI"/>
+                                    <constraint firstAttribute="width" constant="185" id="Ozn-ZC-0G6"/>
+                                    <constraint firstAttribute="height" constant="140" id="sCI-q9-gUI"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VoicesTableViewCell" id="GZz-g4-EBE" customClass="VoicesTableViewCell" customModule="WatsonSpeaks" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24" width="240" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VoicesTableViewCell" id="GZz-g4-EBE">
+                                        <rect key="frame" x="0.0" y="24" width="185" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GZz-g4-EBE" id="vm0-ws-s6z">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="185" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <userDefinedRuntimeAttributes>
@@ -77,20 +63,43 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2mO-yF-YVs">
+                                <rect key="frame" x="151" y="341" width="299" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="1Qn-ws-Duw"/>
+                                    <constraint firstAttribute="width" constant="299" id="QIp-qu-ZUb"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll and select a voice:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wJ-Ly-RxC">
+                                <rect key="frame" x="87" y="97" width="444" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8wJ-Ly-RxC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="9" id="10T-T9-BDa"/>
                             <constraint firstItem="Ncw-d9-S2i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Qh-fV-jZX"/>
-                            <constraint firstItem="1fG-nl-zTA" firstAttribute="leading" secondItem="2mO-yF-YVs" secondAttribute="leading" id="2NU-D4-1TH"/>
-                            <constraint firstItem="1fG-nl-zTA" firstAttribute="centerX" secondItem="Ncw-d9-S2i" secondAttribute="centerX" id="2YP-d0-WKy"/>
                             <constraint firstItem="wPC-5H-dK1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5JN-ru-vOX"/>
-                            <constraint firstItem="Ncw-d9-S2i" firstAttribute="top" secondItem="2mO-yF-YVs" secondAttribute="bottom" constant="47" id="Qem-SW-WJR"/>
-                            <constraint firstItem="1fG-nl-zTA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="108" id="Ubk-zY-KyE"/>
-                            <constraint firstItem="1fG-nl-zTA" firstAttribute="trailing" secondItem="2mO-yF-YVs" secondAttribute="trailing" id="Udc-VU-mCZ"/>
-                            <constraint firstItem="2mO-yF-YVs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="252" id="bdR-wK-RZz"/>
+                            <constraint firstItem="1fG-nl-zTA" firstAttribute="top" secondItem="8wJ-Ly-RxC" secondAttribute="bottom" constant="11" id="Ebp-Pe-ryG"/>
+                            <constraint firstItem="Ncw-d9-S2i" firstAttribute="top" secondItem="2mO-yF-YVs" secondAttribute="bottom" constant="31" id="Qem-SW-WJR"/>
+                            <constraint firstAttribute="bottom" secondItem="2mO-yF-YVs" secondAttribute="bottom" constant="131" id="TaW-PJ-EcS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8wJ-Ly-RxC" secondAttribute="trailing" constant="49" id="UlH-ui-2CW"/>
                             <constraint firstItem="wPC-5H-dK1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="38" id="ktE-nN-1V2"/>
-                            <constraint firstItem="1fG-nl-zTA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lAy-pD-NRW"/>
-                            <constraint firstItem="2mO-yF-YVs" firstAttribute="top" secondItem="1fG-nl-zTA" secondAttribute="bottom" constant="44" id="sxU-QY-Zdf"/>
+                            <constraint firstItem="2mO-yF-YVs" firstAttribute="top" secondItem="1fG-nl-zTA" secondAttribute="bottom" constant="73" id="kuq-Xf-G0s"/>
+                            <constraint firstItem="2mO-yF-YVs" firstAttribute="centerX" secondItem="Ncw-d9-S2i" secondAttribute="centerX" id="lfo-zs-Aye"/>
+                            <constraint firstItem="1fG-nl-zTA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nrG-2A-pnq"/>
+                            <constraint firstItem="2mO-yF-YVs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xbI-NJ-KcT"/>
                         </constraints>
                     </view>
                     <connections>
