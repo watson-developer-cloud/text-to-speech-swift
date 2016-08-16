@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TextToSpeechV1
 
 class ViewController: UIViewController {
     
@@ -29,13 +30,16 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         
+        // Subscribe to notification changes when server returns data to app
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.receivedDataNotification(_:)), name: "ReceivedData", object: nil)
+        
         // Set up speech to text service with credentials and password received from
         // services app on Bluemix.
         tts = ToSpeech(username: creds.username, password: creds.password)
+        tts.loadVoices()
         
         setupSpeakButton()
         setupTextView()
-        setupVoices()
         setupTableView()
 
     }
@@ -43,6 +47,12 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func receivedDataNotification (object: AnyObject) {
+        print("Received Data!")
+        print (tts.voiceNames)
+        self.voicesTableView.reloadData()
     }
     
     private func setupSpeakButton() {
@@ -54,15 +64,8 @@ class ViewController: UIViewController {
         let maxHeight:CGFloat = (textView.font?.lineHeight)! * kAmountOfLinesShown
         textView.sizeThatFits(CGSizeMake(textView.frame.size.width, maxHeight))
         textView.text = "All the problems of the world could be settled easily if men were only willing to think."
-        textView.layer.borderColor = UIColor.blackColor().CGColor
-        textView.layer.borderWidth = 1
-    }
-    
-    private func setupVoices() {
-        voices.append("Kate")
-        voices.append("Allison")
-        voices.append("Lisa")
-        voices.append("Michael")
+        textView.borderColor = UIColor.lightGrayColor()
+        textView.borderWidth = 1
     }
 
     @IBAction func pressedSpeakButton(sender: AnyObject) {
@@ -78,16 +81,32 @@ class ViewController: UIViewController {
         }
         // Uses user's selected voice to use when reading the text inputted.
         switch selectedVoice {
-            case "Kate":
-                tts.kateSpeaking(text)
-            case "Allison":
-                tts.allisonSpeaking(text)
-            case "Lisa":
-                tts.lisaSpeaking(text)
-            case "Michael":
-                tts.michaelSpeaking(text)
+//            case "Kate":
+            case "en-GB_KateVoice":
+                tts.synthesizeVoice(text, voice: SynthesisVoice.GB_Kate)
+//            case "Allison":
+            case "en-US_AllisonVoice":
+                tts.synthesizeVoice(text, voice: SynthesisVoice.US_Allison)
+//            case "Lisa":
+            case "en-US_LisaVoice":
+                tts.synthesizeVoice(text, voice: SynthesisVoice.US_Lisa)
+//            case "Michael":
+            case "en-US_MichaelVoice":
+                tts.synthesizeVoice(text, voice: SynthesisVoice.US_Michael)
+            case "pt-BR_IsabelaVoice":
+                tts.synthesizeVoice(text, voice: SynthesisVoice.BR_Isabela)
+            case "ja-JP_EmiVoice":
+                tts.synthesizeVoice(text, voice: SynthesisVoice.JP_Emi)
+            case "fr-FR_ReneeVoice":
+                tts.synthesizeVoice(text, voice: SynthesisVoice.FR_Renee)
+            case "it-IT_FrancescaVoice":
+                tts.synthesizeVoice(text, voice: SynthesisVoice.IT_Francesca)
+            case "es-ES_LauraVoice":
+                tts.synthesizeVoice(text, voice: SynthesisVoice.ES_Laura)
+            case "es-US_SofiaVoice":
+                tts.synthesizeVoice(text, voice: SynthesisVoice.US_Sofia)
         default:
-            tts.kateSpeaking(text)
+            tts.synthesizeVoice(text, voice: SynthesisVoice.GB_Kate)
         }
     }
 }
@@ -105,8 +124,8 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
     /* Check if index is valid. */
     func getVoiceForIndex(index: Int) -> String? {
-        if ((index >= 0) || (index < voices.count)) {
-            return voices[index]
+        if ((index >= 0) || (index < tts.voiceNames.count)) {
+            return tts.voiceNames[index]
         }
         return nil
     }
@@ -116,13 +135,12 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
      */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Grab each cell to input the desired string.
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("VoicesTableViewCell", forIndexPath: indexPath) as? VoicesTableViewCell else {
-            return UITableViewCell()
-        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("VoicesTableViewCell", forIndexPath: indexPath)
         // Fetch voice to display
         if let voice = self.getVoiceForIndex(indexPath.row) {
             // Set the name
             cell.textLabel!.text = voice
+            cell.textLabel!.adjustsFontSizeToFitWidth = true
         }
         return cell
     }
@@ -138,12 +156,13 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
     // The number of rows in the table view is set to be the number of voices in the voices array.
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return voices.count
+        return tts.voiceNames.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+
         return 1
     }
+    
 
 }
-
