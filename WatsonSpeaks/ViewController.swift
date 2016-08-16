@@ -80,6 +80,7 @@ class ViewController: UIViewController {
             return
         }
         // Uses user's selected voice to use when reading the text inputted.
+        // TODO - Remove foreign voices, trim string, and/or add translation service
         switch selectedVoice {
 //            case "Kate":
             case "en-GB_KateVoice":
