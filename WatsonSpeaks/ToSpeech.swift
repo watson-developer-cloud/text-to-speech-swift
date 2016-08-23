@@ -45,6 +45,9 @@ class ToSpeech {
         }
     }
     
+    /**
+    Find all the voices of
+    */
     func loadVoices() {
         var voices:[Voice] = []
         tts.getVoices({ error in
@@ -52,7 +55,13 @@ class ToSpeech {
             }) { data in
                 voices = data
                 for voice in voices {
-                    self.voiceNames.append(voice.name)
+                    // Splice Voice out of the name
+                    let range = voice.name.rangeOfString("Voice")
+                    let splicedName = voice.name[voice.name.startIndex..<range!.startIndex]
+                    // Find just the part of the string
+//                    let name = splicedName.componentsSeparatedByString("_")
+                    // Get just the name.
+                    self.voiceNames.append(splicedName)
                 }
                 self.receivedDataFromServer()
             }

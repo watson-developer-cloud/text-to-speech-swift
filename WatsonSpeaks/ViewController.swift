@@ -24,6 +24,12 @@ class ViewController: UIViewController {
     var voices: [String] = []                           /* Stores names of voices to display in table view. */
     var selectedVoice: String!                          /* Voice selected by user in the table view. */
     
+    // Constants for error handling.
+    var kTextFieldEmptyAlertText = "Please enter something for me to say!"
+    var kTextFieldEmptyAlertTitle = "Text Field Empty"
+    var kSelectVoiceAlertText = "Please choose a voice for me to use."
+    var kSelectVoiceAlertTitle = "No Voice Selected"
+    
     // Do any additional setup after loading the view, typically from a nib.
     
     override func viewDidLoad() {
@@ -67,45 +73,58 @@ class ViewController: UIViewController {
         textView.borderColor = UIColor.lightGrayColor()
         textView.borderWidth = 1
     }
+    
+    /** 
+     Error handling to make sure user fills in required fields before speaking.
+    */
+    func alertUser(title: String, text: String) {
+        let alert = UIAlertController(title: title, message: text, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+        return
+    }
 
     @IBAction func pressedSpeakButton(sender: AnyObject) {
         guard let text = textView.text else {
             return
         }
-        // Error handling to make sure that the text field is not empty.
+        // Ensure text field is not empty.
         if text == "" {
-            let alert = UIAlertController(title: "Text Field Empty", message: "Please enter something for me to say!", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            alertUser(kTextFieldEmptyAlertTitle, text: kTextFieldEmptyAlertText)
+            return
+        }
+        // Ensure a voice is selected.
+        guard let voice = selectedVoice else {
+            alertUser(kSelectVoiceAlertTitle, text: kSelectVoiceAlertText)
             return
         }
         // Uses user's selected voice to use when reading the text inputted.
         // TODO - Remove foreign voices, trim string, and/or add translation service
-        switch selectedVoice {
-//            case "Kate":
-            case "en-GB_KateVoice":
-                tts.synthesizeVoice(text, voice: SynthesisVoice.GB_Kate)
-//            case "Allison":
-            case "en-US_AllisonVoice":
-                tts.synthesizeVoice(text, voice: SynthesisVoice.US_Allison)
-//            case "Lisa":
-            case "en-US_LisaVoice":
-                tts.synthesizeVoice(text, voice: SynthesisVoice.US_Lisa)
-//            case "Michael":
-            case "en-US_MichaelVoice":
-                tts.synthesizeVoice(text, voice: SynthesisVoice.US_Michael)
-            case "pt-BR_IsabelaVoice":
-                tts.synthesizeVoice(text, voice: SynthesisVoice.BR_Isabela)
-            case "ja-JP_EmiVoice":
-                tts.synthesizeVoice(text, voice: SynthesisVoice.JP_Emi)
-            case "fr-FR_ReneeVoice":
-                tts.synthesizeVoice(text, voice: SynthesisVoice.FR_Renee)
-            case "it-IT_FrancescaVoice":
-                tts.synthesizeVoice(text, voice: SynthesisVoice.IT_Francesca)
-            case "es-ES_LauraVoice":
-                tts.synthesizeVoice(text, voice: SynthesisVoice.ES_Laura)
-            case "es-US_SofiaVoice":
-                tts.synthesizeVoice(text, voice: SynthesisVoice.US_Sofia)
+        switch voice {
+        //            case "Kate":
+        case "en-GB_Kate":
+            tts.synthesizeVoice(text, voice: SynthesisVoice.GB_Kate)
+        //            case "Allison":
+        case "en-US_Allison":
+            tts.synthesizeVoice(text, voice: SynthesisVoice.US_Allison)
+        //            case "Lisa":
+        case "en-US_Lisa":
+            tts.synthesizeVoice(text, voice: SynthesisVoice.US_Lisa)
+        //            case "Michael":
+        case "en-US_Michael":
+            tts.synthesizeVoice(text, voice: SynthesisVoice.US_Michael)
+        case "pt-BR_Isabela":
+            tts.synthesizeVoice(text, voice: SynthesisVoice.BR_Isabela)
+        case "ja-JP_Emi":
+            tts.synthesizeVoice(text, voice: SynthesisVoice.JP_Emi)
+        case "fr-FR_Renee":
+            tts.synthesizeVoice(text, voice: SynthesisVoice.FR_Renee)
+        case "it-IT_Francesca":
+            tts.synthesizeVoice(text, voice: SynthesisVoice.IT_Francesca)
+        case "es-ES_Laura":
+            tts.synthesizeVoice(text, voice: SynthesisVoice.ES_Laura)
+        case "es-US_Sofia":
+            tts.synthesizeVoice(text, voice: SynthesisVoice.US_Sofia)
         default:
             tts.synthesizeVoice(text, voice: SynthesisVoice.GB_Kate)
         }
