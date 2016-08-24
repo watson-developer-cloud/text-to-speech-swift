@@ -12,21 +12,28 @@ import AVFoundation
 
 class ToSpeech {
     
-    private var tts: TextToSpeech!      /* tts object to use TextToSpeech. */
-    var player: AVAudioPlayer?          /* Object used to play audio in app. */
+    /// tts object to use TextToSpeech.
+    private var tts: TextToSpeech!
+    
+    /// Object used to play audio in the app.
+    private var player: AVAudioPlayer?
+    
+    /// Array to store all the voices to use.
     var voiceNames: [String]
     
-    /* Service's credentials to authenticate. */
+    /** Service's credentials to authenticate. */
     init(username: String, password: String) {
         tts = TextToSpeech(username: username, password: password)
         self.voiceNames = []
     }
     
-    /* Synthesize text to audio. Kate selected for which voice to be used for synthesis.
-     * Returns the text in audio format specified and uses callback to output the audio.
+    /** 
+     Synthesize text to audio. Returns the text in audio format specified and uses
+     the callback to output the audio.
+     
+     - paramater text: A string object that includes what to output as the audio
+     - paramater voice: A SynthesisVoice object that identifies which voice to use
     */
-    
-    //
     func synthesizeVoice(text: String, voice: SynthesisVoice) {
         tts.synthesize(text,
                        voice: voice,
@@ -45,9 +52,7 @@ class ToSpeech {
         }
     }
     
-    /**
-    Find all the voices of
-    */
+    /** Find all available voices for user to choose from. */
     func loadVoices() {
         var voices:[Voice] = []
         tts.getVoices({ error in
@@ -55,18 +60,20 @@ class ToSpeech {
             }) { data in
                 voices = data
                 for voice in voices {
-                    // Splice Voice out of the name
+                    // Splice 'Voice' out of the name.
                     let range = voice.name.rangeOfString("Voice")
                     let splicedName = voice.name[voice.name.startIndex..<range!.startIndex]
-                    // Find just the part of the string
-//                    let name = splicedName.componentsSeparatedByString("_")
-                    // Get just the name.
+                    
+                    // Append the spliced string into the array voiceNames.
                     self.voiceNames.append(splicedName)
                 }
+                
+                // Notify controller that data has been received in the model.
                 self.receivedDataFromServer()
             }
     }
     
+    /** Function to notify any listening agents on the Notification, "ReceivedData". */
     func receivedDataFromServer() {
         NSNotificationCenter.defaultCenter().postNotificationName("ReceivedData", object: nil)
     }

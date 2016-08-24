@@ -19,16 +19,16 @@ services into `Credentials.swift`.
 
 # Getting Started
 
-Log in to Bluemix at [https://bluemix.net](https://bluemix.net)
-
-1. Create a service by clicking on Catalog in the website header.
-  1. Select "Watson" under Services on the left hand sidebar to narrow down the list.
+1. Log in to Bluemix at [https://bluemix.net](https://bluemix.net) to create a
+service by clicking on Catalog in the website header. (Select "Watson" under
+Services on the left hand sidebar to narrow down the list.)
 ![Creating service preview](http://i.imgur.com/tmlSKCE.png)
-  2. Select 'Speech to Text'
+2. Select 'Speech to Text'
     1. Choose which space you want to store the service in.
     2. Choose the option 'Leave unbound' if you have no application you want to
       use the service with.
     ![Creating Speech to Text Service](http://i.imgur.com/Dpa4oXt.png)
-2. On the new page that loads upon clicking 'Create Service,' select 'Service
+3. On the new page that loads upon clicking 'Create Service,' select 'Service
 Credentials'
-3. Copy your service credentials and save the `username` and `password`
+4. Copy your service credentials and save the `username` and `password`into
+`Credentials.swift`.
