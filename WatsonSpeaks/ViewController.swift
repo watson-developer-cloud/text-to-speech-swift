@@ -99,18 +99,13 @@ class ViewController: UIViewController {
             return
         }
         // Uses user's selected voice to use when reading the text inputted.
-        // TODO - Remove foreign voices, trim string, and/or add translation service
         switch voice {
-        //            case "Kate":
         case "en-GB_Kate":
             tts.synthesizeVoice(text, voice: SynthesisVoice.GB_Kate)
-        //            case "Allison":
         case "en-US_Allison":
             tts.synthesizeVoice(text, voice: SynthesisVoice.US_Allison)
-        //            case "Lisa":
         case "en-US_Lisa":
             tts.synthesizeVoice(text, voice: SynthesisVoice.US_Lisa)
-        //            case "Michael":
         case "en-US_Michael":
             tts.synthesizeVoice(text, voice: SynthesisVoice.US_Michael)
         case "pt-BR_Isabela":
