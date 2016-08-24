@@ -18,6 +18,8 @@ can be found at the above site.
 Clone this repo and add your credentials given by the Text to Speech Watson
 services into `Credentials.swift`.
 
+Run ```carthage update --platform iOS``` 
+
 # Getting Started
 
 1. Log in to Bluemix at [https://bluemix.net](https://bluemix.net) to create a
