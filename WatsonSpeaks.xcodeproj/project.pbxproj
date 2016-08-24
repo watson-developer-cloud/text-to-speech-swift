@@ -7,16 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE58186D1D620B1C006D3D43 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58186C1D620B1C006D3D43 /* UIViewExtensions.swift */; };
-		CE5818711D6215FE006D3D43 /* ToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5818701D6215FE006D3D43 /* ToSpeech.swift */; };
-		CE5818731D621967006D3D43 /* VoicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5818721D621967006D3D43 /* VoicesTableViewCell.swift */; };
 		CE68E64C1D5A5C4500395344 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E64B1D5A5C4500395344 /* AppDelegate.swift */; };
 		CE68E64E1D5A5C4500395344 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E64D1D5A5C4500395344 /* ViewController.swift */; };
 		CE68E6511D5A5C4500395344 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE68E64F1D5A5C4500395344 /* Main.storyboard */; };
 		CE68E6531D5A5C4500395344 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE68E6521D5A5C4500395344 /* Assets.xcassets */; };
 		CE68E6561D5A5C4500395344 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE68E6541D5A5C4500395344 /* LaunchScreen.storyboard */; };
-		CE68E6611D5A5C4500395344 /* WatsonSpeaksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E6601D5A5C4500395344 /* WatsonSpeaksTests.swift */; };
-		CE68E66C1D5A5C4500395344 /* WatsonSpeaksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E66B1D5A5C4500395344 /* WatsonSpeaksUITests.swift */; };
 		CE68E67C1D5A610700395344 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE68E67B1D5A610700395344 /* Alamofire.framework */; };
 		CE68E67E1D5A611C00395344 /* Freddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE68E67D1D5A611C00395344 /* Freddy.framework */; };
 		CE68E6801D5A612E00395344 /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE68E67F1D5A612E00395344 /* RestKit.framework */; };
@@ -66,9 +61,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CE58186C1D620B1C006D3D43 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
-		CE5818701D6215FE006D3D43 /* ToSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToSpeech.swift; sourceTree = "<group>"; };
-		CE5818721D621967006D3D43 /* VoicesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoicesTableViewCell.swift; sourceTree = "<group>"; };
 		CE68E6481D5A5C4500395344 /* WatsonSpeaks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatsonSpeaks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE68E64B1D5A5C4500395344 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE68E64D1D5A5C4500395344 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,11 +69,7 @@
 		CE68E6551D5A5C4500395344 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE68E6571D5A5C4500395344 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE68E65C1D5A5C4500395344 /* WatsonSpeaksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatsonSpeaksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE68E6601D5A5C4500395344 /* WatsonSpeaksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatsonSpeaksTests.swift; sourceTree = "<group>"; };
-		CE68E6621D5A5C4500395344 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE68E6671D5A5C4500395344 /* WatsonSpeaksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatsonSpeaksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE68E66B1D5A5C4500395344 /* WatsonSpeaksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatsonSpeaksUITests.swift; sourceTree = "<group>"; };
-		CE68E66D1D5A5C4500395344 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE68E67B1D5A610700395344 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		CE68E67D1D5A611C00395344 /* Freddy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Freddy.framework; path = Carthage/Build/iOS/Freddy.framework; sourceTree = "<group>"; };
 		CE68E67F1D5A612E00395344 /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = Carthage/Build/iOS/RestKit.framework; sourceTree = "<group>"; };
@@ -136,8 +124,6 @@
 				CE68E6841D5A64D700395344 /* Freddy.framework */,
 				CE68E67A1D5A5EEF00395344 /* Frameworks */,
 				CE68E64A1D5A5C4500395344 /* WatsonSpeaks */,
-				CE68E65F1D5A5C4500395344 /* WatsonSpeaksTests */,
-				CE68E66A1D5A5C4500395344 /* WatsonSpeaksUITests */,
 				CE68E6491D5A5C4500395344 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -155,35 +141,14 @@
 		CE68E64A1D5A5C4500395344 /* WatsonSpeaks */ = {
 			isa = PBXGroup;
 			children = (
-				CE5818721D621967006D3D43 /* VoicesTableViewCell.swift */,
 				CE68E64B1D5A5C4500395344 /* AppDelegate.swift */,
 				CE68E64D1D5A5C4500395344 /* ViewController.swift */,
-				CE5818701D6215FE006D3D43 /* ToSpeech.swift */,
-				CE58186C1D620B1C006D3D43 /* UIViewExtensions.swift */,
 				CE68E64F1D5A5C4500395344 /* Main.storyboard */,
 				CE68E6521D5A5C4500395344 /* Assets.xcassets */,
 				CE68E6541D5A5C4500395344 /* LaunchScreen.storyboard */,
 				CE68E6571D5A5C4500395344 /* Info.plist */,
 			);
 			path = WatsonSpeaks;
-			sourceTree = "<group>";
-		};
-		CE68E65F1D5A5C4500395344 /* WatsonSpeaksTests */ = {
-			isa = PBXGroup;
-			children = (
-				CE68E6601D5A5C4500395344 /* WatsonSpeaksTests.swift */,
-				CE68E6621D5A5C4500395344 /* Info.plist */,
-			);
-			path = WatsonSpeaksTests;
-			sourceTree = "<group>";
-		};
-		CE68E66A1D5A5C4500395344 /* WatsonSpeaksUITests */ = {
-			isa = PBXGroup;
-			children = (
-				CE68E66B1D5A5C4500395344 /* WatsonSpeaksUITests.swift */,
-				CE68E66D1D5A5C4500395344 /* Info.plist */,
-			);
-			path = WatsonSpeaksUITests;
 			sourceTree = "<group>";
 		};
 		CE68E67A1D5A5EEF00395344 /* Frameworks */ = {
@@ -332,10 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE5818731D621967006D3D43 /* VoicesTableViewCell.swift in Sources */,
-				CE58186D1D620B1C006D3D43 /* UIViewExtensions.swift in Sources */,
 				CE68E6951D5BBCAE00395344 /* Credentials.swift in Sources */,
-				CE5818711D6215FE006D3D43 /* ToSpeech.swift in Sources */,
 				CE68E64E1D5A5C4500395344 /* ViewController.swift in Sources */,
 				CE68E64C1D5A5C4500395344 /* AppDelegate.swift in Sources */,
 			);
@@ -345,7 +307,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE68E6611D5A5C4500395344 /* WatsonSpeaksTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +314,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE68E66C1D5A5C4500395344 /* WatsonSpeaksUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
