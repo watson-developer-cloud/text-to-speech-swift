@@ -26,14 +26,14 @@ Run ```carthage update --platform iOS```
 service by clicking on Catalog in the website header. (Select "Watson" under
 Services on the left hand sidebar to narrow down the list.)
 
-<img src="http://i.imgur.com/tmlSKCE.png" width="500">
+      <img src="http://i.imgur.com/tmlSKCE.png" width="500">
 
 2. Select 'Speech to Text'
     1. Choose which space you want to store the service in.
     2. Choose the option 'Leave unbound' if you have no application you want to
       use the service with.
 
-    <img src="http://i.imgur.com/Dpa4oXt.png" width="500">
+      <img src="http://i.imgur.com/Dpa4oXt.png" width="500">
 
 3. On the new page that loads upon clicking 'Create Service,' select 'Service
 Credentials'
