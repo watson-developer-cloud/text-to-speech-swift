@@ -3,7 +3,7 @@ An example application using the Text to Speech service from the Watson
 Developer Cloud iOS SDK.
 
 
-# Documentation and Git Access
+### Documentation and Git Access
 
 You can find most information concerning the development of ios sdk for watson
 at the source repository available via Git; look here for details:
@@ -18,7 +18,7 @@ can be found at the above site.
 Clone this repo and add your credentials given by the Text to Speech Watson
 services into `Credentials.swift`.
 
-Run ```carthage update --platform iOS``` 
+Run ```carthage update --platform iOS```
 
 # Getting Started
 
@@ -40,6 +40,6 @@ Credentials'
 4. Copy your service credentials and save the `username` and `password`into
 `Credentials.swift`.
 
-# Usage
+### Usage
 
-All calls to the SDK are called in `ToSpeech.swift` to be
+All calls to the SDK are in `ToSpeech.swift` for clarity.
