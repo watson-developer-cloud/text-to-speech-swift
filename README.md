@@ -20,7 +20,7 @@ services into `Credentials.swift`.
 
 Run ```carthage update --platform iOS```
 
-# Getting Started
+### Getting Started
 
 1. Log in to Bluemix at [https://bluemix.net](https://bluemix.net) to create a
 service by clicking on Catalog in the website header. (Select "Watson" under
