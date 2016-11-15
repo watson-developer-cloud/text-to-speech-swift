@@ -28,7 +28,7 @@ Services on the left hand sidebar to narrow down the list.)
 
       <img src="http://i.imgur.com/tmlSKCE.png" width="500">
 
-2. Select 'Speech to Text'
+2. Select 'Text to Speech'
     1. Choose which space you want to store the service in.
     2. Choose the option 'Leave unbound' if you have no application you want to
       use the service with.
@@ -37,9 +37,5 @@ Services on the left hand sidebar to narrow down the list.)
 
 3. On the new page that loads upon clicking 'Create Service,' select 'Service
 Credentials'
-4. Copy your service credentials and save the `username` and `password`into
-`Credentials.swift`.
-
-### Usage
-
-All calls to the SDK are in `ToSpeech.swift` for clarity.
+4. Copy `CredentialsExample.swift` to `Credentials.swift`.
+5. Update the `TextToSpeechUsername` and `TextToSpeechPassword` properties in `Credentials.swift`.
