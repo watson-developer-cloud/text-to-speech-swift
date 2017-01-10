@@ -16,7 +16,7 @@
 		7A261F921DDB958700B6FAFA /* TextToSpeechV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A261F901DDB958700B6FAFA /* TextToSpeechV1.framework */; };
 		7A261F981DDB968300B6FAFA /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A261F951DDB968300B6FAFA /* UIViewExtensions.swift */; };
 		7A261F991DDB968300B6FAFA /* VoicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A261F961DDB968300B6FAFA /* VoicesTableViewCell.swift */; };
-		7A261F9B1DDB980300B6FAFA /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A261F9A1DDB980300B6FAFA /* Credentials.swift */; };
+		CE042D371E2576BB001559FB /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE042D361E2576BB001559FB /* Credentials.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		7A261F901DDB958700B6FAFA /* TextToSpeechV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextToSpeechV1.framework; path = Carthage/Build/iOS/TextToSpeechV1.framework; sourceTree = "<group>"; };
 		7A261F951DDB968300B6FAFA /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		7A261F961DDB968300B6FAFA /* VoicesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoicesTableViewCell.swift; sourceTree = "<group>"; };
-		7A261F9A1DDB980300B6FAFA /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		CE042D361E2576BB001559FB /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 			children = (
 				7A261F7C1DDB8CBE00B6FAFA /* AppDelegate.swift */,
 				7A261F831DDB8CBE00B6FAFA /* Assets.xcassets */,
-				7A261F9A1DDB980300B6FAFA /* Credentials.swift */,
+				CE042D361E2576BB001559FB /* Credentials.swift */,
 				7A261F881DDB8CBE00B6FAFA /* Info.plist */,
 				7A261F851DDB8CBE00B6FAFA /* LaunchScreen.storyboard */,
 				7A261F801DDB8CBE00B6FAFA /* Main.storyboard */,
@@ -180,9 +180,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A261F9B1DDB980300B6FAFA /* Credentials.swift in Sources */,
 				7A261F7F1DDB8CBE00B6FAFA /* ViewController.swift in Sources */,
 				7A261F991DDB968300B6FAFA /* VoicesTableViewCell.swift in Sources */,
+				CE042D371E2576BB001559FB /* Credentials.swift in Sources */,
 				7A261F981DDB968300B6FAFA /* UIViewExtensions.swift in Sources */,
 				7A261F7D1DDB8CBE00B6FAFA /* AppDelegate.swift in Sources */,
 			);
@@ -354,6 +354,7 @@
 				7A261F8D1DDB8CBE00B6FAFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
