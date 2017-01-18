@@ -7,10 +7,10 @@ Give it a try!
 
 ### Documentation and Git Access
 
-You can find most information concerning the development of iOS SDK for Watson
-at the source repository available via Git; look at [iOS SDK Repository](https://github.com/watson-developer-cloud/ios-sdk) for details.
+You can find most information concerning the development of Swift SDK for Watson
+at the source repository available via Git; look at [Swift SDK Repository](https://github.com/watson-developer-cloud/swift-sdk) for details.
 
-New code releases, bug fixes, and general information about the iOS Watson SDK
+New code releases, bug fixes, and general information about the Swift Watson SDK
 can be found at the above site.
 
 # Setup
