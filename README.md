@@ -22,18 +22,16 @@ Run `carthage update --platform iOS` in the command line.
 
 ### Getting Started
 
-1. Create a Bluemix Account
-
-    [Sign up][sign_up] in Bluemix, or use an existing account. Watson Services in Beta are free to use. Create a service by clicking on Catalog in the website header. 
-
-2. On the new page that loads upon clicking 'Create Service,' select 'Service
-Credentials'
+1. Log in and create the service:
+	1. Go to the [Text to Speech][sign_up] service on Bluemix and either sign up for a free account or log into your Bluemix account. 
+	2. Give your service a service name, and then click **Create**.
+2. On the new page that loads, Select **Service Credentials** and then **View Credentials** to get your authentication information.
 3. Update the `TextToSpeechUsername` and `TextToSpeechPassword` properties in `Credentials.swift`.
-4. Run the following command from the home directory to ignore new changes to the `Credentials.swift` file. 
+4. Run the following command from the home directory to ignore new changes to the `Credentials.swift` file:
 
-```sh
-$ git update-index --assume-unchanged Text\ to\ Speech/Credentials.swift 
-```
+	```sh
+	$ git update-index --assume-unchanged Text\ to\ Speech/Credentials.swift 
+	```
 
 ## License
 
@@ -49,7 +47,7 @@ $ git update-index --assume-unchanged Text\ to\ Speech/Credentials.swift
   Find more open source projects on the
   [IBM Github Page](http://ibm.github.io/).
 
-[service_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/text-to-speech.html
+[service_url]: https://www.ibm.com/watson/developercloud/text-to-speech.html
 [cloud_foundry]: https://github.com/cloudfoundry/cli
-[getting_started]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/
-[sign_up]: https://apps.admin.ibmcloud.com/manage/trial/bluemix.html?cm_mmc=WatsonDeveloperCloud-_-LandingSiteGetStarted-_-x-_-CreateAnAccountOnBluemixCLI
+[getting_started]: https://www.ibm.com/watson/developercloud/doc/common/
+[sign_up]: https://console.ng.bluemix.net/catalog/services/text-to-speech/
