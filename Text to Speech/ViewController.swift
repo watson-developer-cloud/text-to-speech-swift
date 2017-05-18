@@ -17,6 +17,8 @@
 import UIKit
 import AVFoundation
 import TextToSpeechV1
+import LanguageTranslatorV2
+
 
 class ViewController: UIViewController {
     
@@ -56,6 +58,17 @@ class ViewController: UIViewController {
             username: Credentials.TextToSpeechUsername,
             password: Credentials.TextToSpeechPassword
         )
+        
+        let languageTranslator = LanguageTranslator(username: Credentials.LanguageTranslatorUsername, password: Credentials.LanguageTranslatorPassword)
+        
+        // set the serviceURL property to use the legacy Language Translation service
+        // languageTranslator.serviceURL = "https://gateway.watsonplatform.net/language-translation/api"
+        
+        let failure = { (error: Error) in print(error) }
+        languageTranslator.translate("what time is it", from: "en", to: "es", failure: failure) {
+            translation in
+            print(translation)
+        }
         
         // Load the supported voices
         loadVoices()

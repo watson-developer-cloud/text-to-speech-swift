@@ -16,6 +16,7 @@
 		7A261F921DDB958700B6FAFA /* TextToSpeechV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A261F901DDB958700B6FAFA /* TextToSpeechV1.framework */; };
 		7A261F981DDB968300B6FAFA /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A261F951DDB968300B6FAFA /* UIViewExtensions.swift */; };
 		7A261F991DDB968300B6FAFA /* VoicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A261F961DDB968300B6FAFA /* VoicesTableViewCell.swift */; };
+		83D283911ECE54D800183128 /* LanguageTranslatorV2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D283901ECE54D800183128 /* LanguageTranslatorV2.framework */; };
 		CE042D371E2576BB001559FB /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE042D361E2576BB001559FB /* Credentials.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		7A261F901DDB958700B6FAFA /* TextToSpeechV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextToSpeechV1.framework; path = Carthage/Build/iOS/TextToSpeechV1.framework; sourceTree = "<group>"; };
 		7A261F951DDB968300B6FAFA /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		7A261F961DDB968300B6FAFA /* VoicesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoicesTableViewCell.swift; sourceTree = "<group>"; };
+		83D283901ECE54D800183128 /* LanguageTranslatorV2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LanguageTranslatorV2.framework; path = Carthage/Build/iOS/LanguageTranslatorV2.framework; sourceTree = "<group>"; };
 		CE042D361E2576BB001559FB /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83D283911ECE54D800183128 /* LanguageTranslatorV2.framework in Frameworks */,
 				7A261F911DDB958700B6FAFA /* RestKit.framework in Frameworks */,
 				7A261F921DDB958700B6FAFA /* TextToSpeechV1.framework in Frameworks */,
 			);
@@ -83,6 +86,7 @@
 		7A261F8E1DDB958700B6FAFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				83D283901ECE54D800183128 /* LanguageTranslatorV2.framework */,
 				7A261F8F1DDB958700B6FAFA /* RestKit.framework */,
 				7A261F901DDB958700B6FAFA /* TextToSpeechV1.framework */,
 			);
@@ -166,6 +170,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/TextToSpeechV1.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RestKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/LanguageTranslatorV2.framework",
 			);
 			outputPaths = (
 			);
