@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Watson Speaks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPC-5H-dK1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Watson Speaks &amp; Translates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPC-5H-dK1">
                                 <rect key="frame" x="214" y="58" width="172" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -67,8 +67,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Scroll and select a voice:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wJ-Ly-RxC">
+                                <rect key="frame" x="87" y="97" width="444" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvf-Oh-iaz">
+                                <rect key="frame" x="231" y="538" width="128" height="30"/>
+                                <state key="normal" title="Translate"/>
+                                <connections>
+                                    <action selector="tranPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uIp-9p-uhE"/>
+                                </connections>
+                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2mO-yF-YVs">
-                                <rect key="frame" x="151" y="341" width="299" height="128"/>
+                                <rect key="frame" x="151" y="276" width="299" height="128"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="1Qn-ws-Duw"/>
@@ -83,10 +96,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Scroll and select a voice:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wJ-Ly-RxC">
-                                <rect key="frame" x="87" y="97" width="444" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Translated text: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tI8-k4-UBg">
+                                <rect key="frame" x="87" y="75" width="247" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -94,19 +107,25 @@
                         <constraints>
                             <constraint firstItem="8wJ-Ly-RxC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="9" id="10T-T9-BDa"/>
                             <constraint firstItem="Ncw-d9-S2i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Qh-fV-jZX"/>
+                            <constraint firstItem="pvf-Oh-iaz" firstAttribute="top" secondItem="Ncw-d9-S2i" secondAttribute="bottom" constant="8" id="3SA-e6-sX9"/>
                             <constraint firstItem="wPC-5H-dK1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5JN-ru-vOX"/>
                             <constraint firstItem="1fG-nl-zTA" firstAttribute="top" secondItem="8wJ-Ly-RxC" secondAttribute="bottom" constant="11" id="Ebp-Pe-ryG"/>
+                            <constraint firstItem="tI8-k4-UBg" firstAttribute="top" secondItem="wPC-5H-dK1" secondAttribute="bottom" constant="-13" id="KTp-LQ-nL7"/>
+                            <constraint firstItem="tI8-k4-UBg" firstAttribute="centerX" secondItem="8wJ-Ly-RxC" secondAttribute="centerX" id="KYC-JB-k2W"/>
                             <constraint firstItem="Ncw-d9-S2i" firstAttribute="top" secondItem="2mO-yF-YVs" secondAttribute="bottom" constant="31" id="Qem-SW-WJR"/>
                             <constraint firstAttribute="bottom" secondItem="2mO-yF-YVs" secondAttribute="bottom" constant="131" id="TaW-PJ-EcS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8wJ-Ly-RxC" secondAttribute="trailing" constant="49" id="UlH-ui-2CW"/>
+                            <constraint firstItem="pvf-Oh-iaz" firstAttribute="centerX" secondItem="Ncw-d9-S2i" secondAttribute="centerX" id="jXJ-ar-BvE"/>
                             <constraint firstItem="wPC-5H-dK1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="38" id="ktE-nN-1V2"/>
                             <constraint firstItem="2mO-yF-YVs" firstAttribute="top" secondItem="1fG-nl-zTA" secondAttribute="bottom" constant="73" id="kuq-Xf-G0s"/>
                             <constraint firstItem="2mO-yF-YVs" firstAttribute="centerX" secondItem="Ncw-d9-S2i" secondAttribute="centerX" id="lfo-zs-Aye"/>
                             <constraint firstItem="1fG-nl-zTA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nrG-2A-pnq"/>
+                            <constraint firstItem="8wJ-Ly-RxC" firstAttribute="top" secondItem="tI8-k4-UBg" secondAttribute="bottom" constant="1" id="pjH-Xl-ovW"/>
                             <constraint firstItem="2mO-yF-YVs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xbI-NJ-KcT"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="button" destination="tI8-k4-UBg" id="uIP-Vt-bnY"/>
                         <outlet property="speakButton" destination="Ncw-d9-S2i" id="NLs-3k-c9G"/>
                         <outlet property="textView" destination="2mO-yF-YVs" id="A71-wG-caY"/>
                         <outlet property="voicesTableView" destination="1fG-nl-zTA" id="9hl-1h-ozg"/>
@@ -114,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="238" y="604"/>
+            <point key="canvasLocation" x="237.59999999999999" y="603.14842578710648"/>
         </scene>
     </scenes>
 </document>
