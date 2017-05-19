@@ -1,6 +1,7 @@
 # Custom
 Credentials.swift
 public/
+ttsServer/hugo/themes/
 
 # Build generated
 build/
