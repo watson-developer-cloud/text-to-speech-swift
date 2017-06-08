@@ -89,6 +89,21 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZz-NC-MtH">
+                                <rect key="frame" x="267" y="571" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="pressTranslate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1lL-zE-EkG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geI-Cu-Cze">
+                                <rect key="frame" x="151" y="609" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -109,6 +124,7 @@
                     <connections>
                         <outlet property="speakButton" destination="Ncw-d9-S2i" id="NLs-3k-c9G"/>
                         <outlet property="textView" destination="2mO-yF-YVs" id="A71-wG-caY"/>
+                        <outlet property="translatedText" destination="geI-Cu-Cze" id="1ii-Rf-whE"/>
                         <outlet property="voicesTableView" destination="1fG-nl-zTA" id="9hl-1h-ozg"/>
                     </connections>
                 </viewController>

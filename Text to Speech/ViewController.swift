@@ -29,6 +29,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var voicesTableView: UITableView!
     
+    @IBAction func pressTranslate(_ sender: Any) {
+        
+        let languageTranslator = LanguageTranslator(username: Credentials.LanguageTranslatorUsername, password: Credentials.LanguageTranslatorPassword)
+        
+        // set the serviceURL property to use the legacy Language Translation service
+        // languageTranslator.serviceURL = "https://gateway.watsonplatform.net/language-translation/api"
+        
+        let failure = { (error: Error) in print(error) }
+        languageTranslator.translate("what time is it", from: "en", to: "es", failure: failure) {
+            translation in
+            print(translation)
+        }
+        
+    }
     // Text to Speech service object
     var textToSpeech: TextToSpeech!
     
@@ -59,16 +73,7 @@ class ViewController: UIViewController {
             password: Credentials.TextToSpeechPassword
         )
         
-        let languageTranslator = LanguageTranslator(username: Credentials.LanguageTranslatorUsername, password: Credentials.LanguageTranslatorPassword)
-        
-        // set the serviceURL property to use the legacy Language Translation service
-        // languageTranslator.serviceURL = "https://gateway.watsonplatform.net/language-translation/api"
-        
-        let failure = { (error: Error) in print(error) }
-        languageTranslator.translate("what time is it", from: "en", to: "es", failure: failure) {
-            translation in
-            print(translation)
-        }
+       
         
         // Load the supported voices
         loadVoices()
