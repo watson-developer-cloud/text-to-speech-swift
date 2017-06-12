@@ -5,8 +5,6 @@ import SwiftyJSON
 class MyApi {
     
     var parameters = [String:String]()
-    var str = ""
-
     var router: Router?
     
     init() {
@@ -15,8 +13,7 @@ class MyApi {
     }
     
     func callWatson (completionHandler: @escaping (String)->(), parameters: ([String:String]) ) -> String {
-        
-        print(parameters)
+
         guard let url = URL(string: "https://watson-api-explorer.mybluemix.net/language-translator/api/v2/translate") else {return "error"}
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -26,9 +23,7 @@ class MyApi {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
-            if response != nil {
-                print("There is a response, but it is too long and annoying to view in the console. ")
-            }
+            if response != nil {}
             
             if let data = data {
                 
@@ -50,8 +45,8 @@ class MyApi {
                     print(error)
                 }
                 
-                          }
-            }.resume()
+            }
+        }.resume()
         return "error"
     }
     
@@ -60,37 +55,19 @@ class MyApi {
         //POST REQUEST
         router?.post("/translate") { request, response, next in
             
-//            guard let body = request.body,
-//                let json = body.asJSON,
-//            let name = json["text"].string
-//            else {
-//                try response.status(.badRequest).end()
-//                return
-//            }
-//            
-//            response.send(name)
-//            next()
-            
-            guard let postData = request.body else {next(); return}
-            
-            switch (postData) {
-                
-            case .json(let jsonData):
-                let sourceLang = jsonData["source"].string ?? ""
-                let targetLang = jsonData["target"].string ?? ""
-                let textToTranslate = jsonData["text"].string ?? ""
-                if sourceLang == "English" {
-                    self.parameters["source"] = "en"
-                }
-                if targetLang == "Spanish" {
-                    self.parameters["target"] = "es"
-                }
-                if textToTranslate == "something cool" {
-                    self.parameters["text"] = textToTranslate
-                }
-            default:
-                try response.send("Default").end()
+            guard let body = request.body,
+            let json = body.asJSON,
+            let textToTranslate = json["text"].string,
+            let targetLang = json["target"].string,
+            let sourceLang = json["source"].string
+            else {
+                try response.status(.badRequest).end()
+                return
             }
+            
+            self.parameters["source"] = sourceLang
+            self.parameters["target"] = targetLang
+            self.parameters["text"] = textToTranslate
             
             let pfd = MyApi()
             pfd.callWatson(completionHandler: { (jsonString) in
