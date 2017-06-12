@@ -1,0 +1,14 @@
+baseURL = "https://horeaporutiu.github.io/watsonSpeaks/"
+languageCode = "en-us"
+title = "Watson Speaks"
+theme = "hugo-theme-nix"
+
+[params]
+  GithubID = "https://horeaporutiu.github.io/watsonSpeaks/"
+  Name = "Watson Speaks"
+  HeaderUsername = "watson"
+  HeaderHostname = "textToSpeech"
+  Email = "horeaporutiu@gmail.com"
+  About = "This site is run on Kitura and powered by Hugo. My iOS app with Watson integrates text to speech and language translation and uses Swift to build an end-to-end app."
+  ProfilePicture = "maxresdefault.jpg"
+  GoogleAnalytics = "your_google_analytics_id"

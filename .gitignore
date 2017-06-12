@@ -1,5 +1,7 @@
 # Custom
-Credentials.swift
+Text\ to\ Speech/Credentials.swift
+public/
+ttsServer/hugo/themes/
 
 # Build generated
 build/
