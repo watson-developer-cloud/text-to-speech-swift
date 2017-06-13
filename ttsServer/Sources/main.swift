@@ -8,16 +8,22 @@ HeliumLogger.use()
 let router = Router()
 router.post(middleware: BodyParser())
 var parameters = [String:String]()
+let username = "64a3ecc4-182b-47e9-a659-c580a7b5ca02"
+let password = "AnnGIdp6kCU7"
+let loginString = String(format: "%@:%@", username, password) //convert credential
+let loginData = loginString.data(using: String.Encoding.utf8)!
+let base64LoginString = loginData.base64EncodedString()
 
 func callWatson (completionHandler: @escaping (String)->(), parameters: ([String:String]) ) -> String {
     
-    guard let url = URL(string: "https://watson-api-explorer.mybluemix.net/language-translator/api/v2/translate") else {return "error"}
+    guard let url = URL(string: "https://gateway.watsonplatform.net/language-translator/api/v2/translate") else {return "error"}
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {return "error"}
     request.httpBody = httpBody
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     request.addValue("application/json", forHTTPHeaderField: "Accept")
+    request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
     let session = URLSession.shared
     session.dataTask(with: request) { (data, response, error) in
         if response != nil {}
