@@ -5,8 +5,8 @@ let router = Router()
 router.post(middleware: BodyParser())
 
 var parameters = [String:String]()
-let username = "64a3ecc4-182b-47e9-a659-c580a7b5ca02"
-let password = "AnnGIdp6kCU7"
+let username = "username"
+let password = "password"
 let loginString = String(format: "%@:%@", username, password) //convert credential
 let loginData = loginString.data(using: String.Encoding.utf8)!
 let base64LoginString = loginData.base64EncodedString()
