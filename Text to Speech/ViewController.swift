@@ -17,6 +17,9 @@
 import UIKit
 import AVFoundation
 import TextToSpeechV1
+import LanguageTranslatorV2
+import Foundation
+
 
 class ViewController: UIViewController {
     
@@ -27,6 +30,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var voicesTableView: UITableView!
     
+<<<<<<< HEAD
+    @IBAction func pressTranslate(_ sender: Any) {
+        
+        let languageTranslator = LanguageTranslator(username: Credentials.LanguageTranslatorUsername, password: Credentials.LanguageTranslatorPassword)
+        
+        // set the serviceURL property to use the legacy Language Translation service
+        // languageTranslator.serviceURL = "https://gateway.watsonplatform.net/language-translation/api"
+        
+        let failure = { (error: Error) in print(error) }
+        languageTranslator.translate("what time is it", from: "en", to: "es", failure: failure) {
+            translation in
+            print(translation)
+        }
+        
+    }
+=======
+    @IBOutlet weak var pressedTranslate: UIButton!
+    
+    
+    @IBOutlet weak var transText: UILabel!
+>>>>>>> 856e9102790382fc5b112c5f6b61d7abe16c789d
     // Text to Speech service object
     var textToSpeech: TextToSpeech!
     
@@ -48,14 +72,21 @@ class ViewController: UIViewController {
     let kSelectVoiceAlertText = "Please choose a voice for me to use."
     let kSelectVoiceAlertTitle = "No Voice Selected"
     
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
+       
         
         // Instantiate Text to Speech service
         textToSpeech = TextToSpeech(
             username: Credentials.TextToSpeechUsername,
             password: Credentials.TextToSpeechPassword
         )
+        
+<<<<<<< HEAD
+       
+=======
+        
+>>>>>>> 856e9102790382fc5b112c5f6b61d7abe16c789d
         
         // Load the supported voices
         loadVoices()
@@ -67,7 +98,7 @@ class ViewController: UIViewController {
         // Set up the text view
         let maxHeight: CGFloat = textView.font!.lineHeight * kAmountOfLinesShown
         textView.sizeThatFits(CGSize(width: textView.frame.size.width, height: maxHeight))
-        textView.text = "All the problems of the world could be settled easily if men were only willing to think."
+        textView.text = "hello"
         textView.borderColor = UIColor.lightGray
         textView.borderWidth = 1
         
@@ -77,13 +108,49 @@ class ViewController: UIViewController {
         voicesTableView.borderWidth = 1.0
         voicesTableView.borderColor = UIColor.lightGray
     }
+    //@IBOutlet weak var button: UILabel!
+    
+    //@IBOutlet weak var textLabel: UILabel!
+
+    @IBOutlet weak var button: UILabel!
+    
+    @IBAction func tranPressed(_ sender: Any) {
+        print("pressed")
+        let languageTranslator = LanguageTranslator(username: Credentials.LanguageTranslatorUsername, password: Credentials.LanguageTranslatorPassword)
+        
+        // set the serviceURL property to use the legacy Language Translation service
+        //languageTranslator.serviceURL = "https://gateway.watsonplatform.net/language-translation/api"
+        
+        let failure = { (error: Error) in print(error) }
+        guard let text = textView.text else {
+            return
+        }
+        
+        languageTranslator.translate(text, from: "en", to: "es", failure: failure) {
+            translation in
+            print(String(describing: translation))
+            let tempStr = String(describing: translation)
+            if let videoID = tempStr.components(separatedBy: ":").last {
+                var result = String(videoID.characters.dropLast(4))
+                var finResult = String(result.characters.dropFirst(2))
+                
+                DispatchQueue.main.async {
+                    self.button.text = String(finResult)
+                }
+                
+            }
+        }
+
+    }
+    
     
     /** Reload the table upon receiving data to display. */
     func receivedDataNotification(object: AnyObject) {
         self.voicesTableView.reloadData()
     }
     
-    func loadVoices() {
+    
+        func loadVoices() {
         let failure = { (error: Error) in print(error) }
         textToSpeech.getVoices(failure: failure) { voices in
             for voice in voices {
