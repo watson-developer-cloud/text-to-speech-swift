@@ -12,7 +12,6 @@
 		7A261F821DDB8CBE00B6FAFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A261F801DDB8CBE00B6FAFA /* Main.storyboard */; };
 		7A261F841DDB8CBE00B6FAFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A261F831DDB8CBE00B6FAFA /* Assets.xcassets */; };
 		7A261F871DDB8CBE00B6FAFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A261F851DDB8CBE00B6FAFA /* LaunchScreen.storyboard */; };
-		7A261F911DDB958700B6FAFA /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A261F8F1DDB958700B6FAFA /* RestKit.framework */; };
 		7A261F921DDB958700B6FAFA /* TextToSpeechV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A261F901DDB958700B6FAFA /* TextToSpeechV1.framework */; };
 		7A261F981DDB968300B6FAFA /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A261F951DDB968300B6FAFA /* UIViewExtensions.swift */; };
 		7A261F991DDB968300B6FAFA /* VoicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A261F961DDB968300B6FAFA /* VoicesTableViewCell.swift */; };
@@ -27,7 +26,6 @@
 		7A261F831DDB8CBE00B6FAFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A261F861DDB8CBE00B6FAFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A261F881DDB8CBE00B6FAFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7A261F8F1DDB958700B6FAFA /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = Carthage/Build/iOS/RestKit.framework; sourceTree = "<group>"; };
 		7A261F901DDB958700B6FAFA /* TextToSpeechV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextToSpeechV1.framework; path = Carthage/Build/iOS/TextToSpeechV1.framework; sourceTree = "<group>"; };
 		7A261F951DDB968300B6FAFA /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		7A261F961DDB968300B6FAFA /* VoicesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoicesTableViewCell.swift; sourceTree = "<group>"; };
@@ -39,7 +37,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A261F911DDB958700B6FAFA /* RestKit.framework in Frameworks */,
 				7A261F921DDB958700B6FAFA /* TextToSpeechV1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,7 +80,6 @@
 		7A261F8E1DDB958700B6FAFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7A261F8F1DDB958700B6FAFA /* RestKit.framework */,
 				7A261F901DDB958700B6FAFA /* TextToSpeechV1.framework */,
 			);
 			name = Frameworks;
@@ -165,7 +161,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/TextToSpeechV1.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RestKit.framework",
 			);
 			outputPaths = (
 			);
