@@ -81,13 +81,23 @@ class ViewController: UIViewController {
     }
     
     func loadVoices() {
-        let failure = { (error: Error) in print(error) }
-        textToSpeech.getVoices(failure: failure) { voices in
-            for voice in voices {
-                self.voices.append(voice.name)
+        textToSpeech.listVoices { [weak self] (response, error) in
+            if let error = error {
+                print(error)
+                return
             }
+            
+            guard let voices = response?.result?.voices else {
+                print("Failed to get voices")
+                return
+            }
+            
+            for voice in voices {
+                self?.voices.append(voice.name)
+            }
+            
             DispatchQueue.main.async {
-                self.voicesTableView.reloadData()
+                self?.voicesTableView.reloadData()
             }
         }
     }
