@@ -132,17 +132,19 @@ class ViewController: UIViewController {
         }
         
         // Synthesize the text
-        let failure = { (error: Error) in print(error) }
-        textToSpeech.synthesize(
-            text,
-            voice: voice,
-            audioFormat: .wav,
-            failure: failure)
-        {
-            data in
+        textToSpeech.synthesize(text: text, accept: "audio/wav", voice: voice) { [weak self] (response, error) in
+            if let error = error {
+                print(error)
+            }
+            
+            guard let data = response?.result else {
+                print("Failed to synthesize text")
+                return
+            }
+            
             do {
-                self.player = try AVAudioPlayer(data: data)
-                self.player!.play()
+                self?.player = try AVAudioPlayer(data: data)
+                self?.player!.play()
             } catch {
                 print("Failed to create audio player.")
             }
