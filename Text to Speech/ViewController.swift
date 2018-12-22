@@ -104,8 +104,8 @@ class ViewController: UIViewController {
     
     /** Error handling to make sure user fills in required fields before speaking. */
     func alertUser(title: String, text: String) {
-        let alert = UIAlertController(title: title, message: text, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(title: title, message: text, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
