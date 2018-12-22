@@ -15,6 +15,5 @@
  **/
 
 struct Credentials {
-    static let TextToSpeechUsername = "your-username-here"
-    static let TextToSpeechPassword = "your-password-here"
+    static let TextToSpeechApiKey = "your-api-key"
 }

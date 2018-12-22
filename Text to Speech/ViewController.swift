@@ -52,10 +52,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Instantiate Text to Speech service
-        textToSpeech = TextToSpeech(
-            username: Credentials.TextToSpeechUsername,
-            password: Credentials.TextToSpeechPassword
-        )
+        textToSpeech = TextToSpeech(apiKey: Credentials.TextToSpeechApiKey)
         
         // Load the supported voices
         loadVoices()
