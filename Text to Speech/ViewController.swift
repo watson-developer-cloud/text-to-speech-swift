@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     }
     
     func loadVoices() {
-        textToSpeech.listVoices { [weak self] (response, error) in
+        textToSpeech.listVoices { (response, error) in
             if let error = error {
                 print(error)
                 return
@@ -93,11 +93,11 @@ class ViewController: UIViewController {
             }
             
             for voice in voices {
-                self?.voices.append(voice.name)
+                self.voices.append(voice.name)
             }
             
             DispatchQueue.main.async {
-                self?.voicesTableView.reloadData()
+                self.voicesTableView.reloadData()
             }
         }
     }
@@ -132,7 +132,7 @@ class ViewController: UIViewController {
         }
         
         // Synthesize the text
-        textToSpeech.synthesize(text: text, accept: "audio/wav", voice: voice) { [weak self] (response, error) in
+        textToSpeech.synthesize(text: text, accept: "audio/wav", voice: voice) { (response, error) in
             if let error = error {
                 print(error)
             }
@@ -143,8 +143,8 @@ class ViewController: UIViewController {
             }
             
             do {
-                self?.player = try AVAudioPlayer(data: data)
-                self?.player!.play()
+                self.player = try AVAudioPlayer(data: data)
+                self.player!.play()
             } catch {
                 print("Failed to create audio player.")
             }
