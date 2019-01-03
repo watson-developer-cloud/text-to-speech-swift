@@ -23,14 +23,14 @@ Run `carthage update --platform iOS` in the command line.
 ### Getting Started
 
 1. Log in and create the service:
-	1. Go to the [Text to Speech][sign_up] service on Bluemix and either sign up for a free account or log into your Bluemix account. 
+	1. Go to the [Text to Speech][sign_up] service on Bluemix and either sign up for a free account or log into your Bluemix account.
 	2. Give your service a service name, and then click **Create**.
 2. On the new page that loads, Select **Service Credentials** and then **View Credentials** to get your authentication information.
-3. Update the `TextToSpeechUsername` and `TextToSpeechPassword` properties in `Credentials.swift`.
+3. Update the `TextToSpeechApiKey` property in `Credentials.swift`.
 4. Run the following command from the home directory to ignore new changes to the `Credentials.swift` file:
 
 	```sh
-	$ git update-index --assume-unchanged Text\ to\ Speech/Credentials.swift 
+	$ git update-index --assume-unchanged Text\ to\ Speech/Credentials.swift
 	```
 
 ## License

@@ -52,10 +52,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Instantiate Text to Speech service
-        textToSpeech = TextToSpeech(
-            username: Credentials.TextToSpeechUsername,
-            password: Credentials.TextToSpeechPassword
-        )
+        textToSpeech = TextToSpeech(apiKey: Credentials.TextToSpeechApiKey)
         
         // Load the supported voices
         loadVoices()
@@ -84,11 +81,21 @@ class ViewController: UIViewController {
     }
     
     func loadVoices() {
-        let failure = { (error: Error) in print(error) }
-        textToSpeech.getVoices(failure: failure) { voices in
+        textToSpeech.listVoices { (response, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let voices = response?.result?.voices else {
+                print("Failed to get voices")
+                return
+            }
+            
             for voice in voices {
                 self.voices.append(voice.name)
             }
+            
             DispatchQueue.main.async {
                 self.voicesTableView.reloadData()
             }
@@ -97,8 +104,8 @@ class ViewController: UIViewController {
     
     /** Error handling to make sure user fills in required fields before speaking. */
     func alertUser(title: String, text: String) {
-        let alert = UIAlertController(title: title, message: text, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(title: title, message: text, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -125,14 +132,16 @@ class ViewController: UIViewController {
         }
         
         // Synthesize the text
-        let failure = { (error: Error) in print(error) }
-        textToSpeech.synthesize(
-            text,
-            voice: voice,
-            audioFormat: .wav,
-            failure: failure)
-        {
-            data in
+        textToSpeech.synthesize(text: text, accept: "audio/wav", voice: voice) { (response, error) in
+            if let error = error {
+                print(error)
+            }
+            
+            guard let data = response?.result else {
+                print("Failed to synthesize text")
+                return
+            }
+            
             do {
                 self.player = try AVAudioPlayer(data: data)
                 self.player!.play()
