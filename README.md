@@ -1,5 +1,7 @@
 # Text to Speech Swift Starter Application
 
+## DEPRECATED: this repo is no longer actively maintained. It can still be used as reference, but may contain outdated or unpatched code.
+
 The [Text to Speech][service_url] service uses IBM's speech synthesis capabilities to convert English or Spanish text to an audio signal. The audio is streamed back to the client with minimal delay. The service can be accessed via a REST interface.
 
 Give it a try!
